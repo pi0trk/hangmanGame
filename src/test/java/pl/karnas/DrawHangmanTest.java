@@ -7,9 +7,8 @@ public class DrawHangmanTest {
 
     @Test
     public void shouldPrintNiceGibbetToGivenIndexHight() {
-        final StringBuilder gibbet = DrawHangman.drawing(7);
+        final StringBuilder gibbet = DrawHangman.drawing(8);
         System.out.println(gibbet);
-        //todo: count printed lines
-        Assert.assertTrue(gibbet.length() == 69);
+        Assert.assertEquals(gibbet.length(), 83);
     }
 }
