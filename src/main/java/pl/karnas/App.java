@@ -13,15 +13,11 @@ public class App {
         int falseAttempts = 0;
         int attempts = 1;
         String secretWord = Word.generateWord();
-        //todo: Remove below testing hint:
-        System.out.println("Secret word is: " + secretWord + "\n");
-
 
         System.out.print("Welcome to the Hangman game! \nPlease provide a letter: ");
 
         String guessedLettersSoFar = Word.generateUnderscores(secretWord);
         System.out.println(guessedLettersSoFar);
-
 
         Scanner sc = new Scanner(System.in);
         String letter;

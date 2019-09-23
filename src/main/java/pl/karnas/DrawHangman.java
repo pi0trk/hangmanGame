@@ -13,7 +13,6 @@ import static pl.karnas.GibbetPartsEnum.ROPE;
 
 class DrawHangman {
 
-
     @Override
     public String toString() {
         return "DrawHangman{}";
@@ -21,13 +20,13 @@ class DrawHangman {
 
     static StringBuilder drawing(int falseAttempts){
         StringBuilder sb = new StringBuilder();
-        for (int i = falseAttempts; i >0 ; i--) {
-            sb.append(steps.get(i-1));
+        for (int i = 0; i< falseAttempts; i++) {
+            sb.append(steps.get(i));
         }
         return sb;
     }
 
-    private static final LinkedList<GibbetPartsEnum> steps = createLinkedList(GROUND, GIBBET_BASE, LEGS, BODY, HANDS, HEAD, ROPE, GIBBET_TOP);
+    private static final LinkedList<GibbetPartsEnum> steps = createLinkedList(GIBBET_TOP, ROPE, HEAD, HANDS, BODY, LEGS, GIBBET_BASE , GROUND);
 
     private static <T> LinkedList<T> createLinkedList(T...elements) {
         LinkedList<T> newList = new LinkedList<>();

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pl.karnas</groupId>
-    <artifactId>hungmanGame</artifactId>
+    <artifactId>hangmanGame</artifactId>
     <version>0.1</version>
     <name>hangmanGame</name>
 
