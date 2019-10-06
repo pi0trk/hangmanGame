@@ -6,7 +6,7 @@
 
     <groupId>pl.karnas</groupId>
     <artifactId>hangmanGame</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
     <name>hangmanGame</name>
 
     <properties>

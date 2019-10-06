@@ -7,9 +7,10 @@ import java.util.Scanner;
  *
  * @author pi0trk
  */
-public class App {
+class App {
     public static void main(String[] args) {
 
+        AnswerValidator answerValidator;
         int falseAttempts = 0;
         int attempts = 1;
         String secretWord = Word.generateWord();
@@ -26,32 +27,16 @@ public class App {
             System.out.print("Type your guess nr " + attempts + ": ");
             attempts += 1;
 
-            if (isGuessed(guessedLettersSoFar)) {
-                System.out.println("Bravo, you've guessed secret word -> " + secretWord);
-                return;
-            }
+            if (AnswerValidator.winCheck(secretWord, guessedLettersSoFar)) return;
 
             letter = sc.nextLine().toUpperCase();
+            answerValidator = new AnswerValidator(falseAttempts, secretWord, guessedLettersSoFar, letter).validate();
 
-            if (guessedLettersSoFar.contains(letter)){
-                System.out.println("You've already tried this letter!");
-            }
-            if (Word.contains(secretWord, letter)) {
-                guessedLettersSoFar = Letter.unmaskLetter(secretWord, letter, guessedLettersSoFar);
-                System.out.println("Secret word is: " + guessedLettersSoFar);
-            } else {
-                falseAttempts += 1;
-                System.out.println("False attempts: " + falseAttempts);
-                System.out.println(DrawHangman.drawing(falseAttempts));
-            }
-            if (falseAttempts == 8) {
-                System.out.println("You've been hanged!");
-                return;
-            }
+            if (answerValidator.isHanged()) return;
+
+            falseAttempts = answerValidator.getFalseAttempts();
+            guessedLettersSoFar = answerValidator.getGuessedLettersSoFar();
         }
     }
 
-    private static boolean isGuessed(String sb) {
-        return !sb.contains("*");
-    }
 }
